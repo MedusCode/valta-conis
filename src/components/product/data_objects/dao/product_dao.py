@@ -17,7 +17,7 @@ class ProductDao(ma.SQLAlchemySchema):
 
     @pre_load()
     def load_duplicate_check(self, product, **_):
-        handle_duplicates_conflicts(
+        results = handle_duplicates_conflicts(
             self.Meta.model,
             product,
             {
@@ -27,6 +27,11 @@ class ProductDao(ma.SQLAlchemySchema):
             },
             exception_message=ExceptionMessage.FAILED_TO_CREATE_PRODUCT.value
         )
+
+        if results["exception"]:
+            raise results["exception"]
+
+        return results["data"]
 
 
 product_dao = ProductDao()

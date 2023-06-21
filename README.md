@@ -169,7 +169,6 @@ ___
     "name": String,
     "vendor_code": String,
     "barcode": String,
-    "loyalty_product_rule_id": String
 }
 ```
 ___
@@ -188,7 +187,6 @@ ___
     "name": String,
     "vendor_code": String,
     "barcode": String,
-    "loyalty_product_rule_id": String
 }
 ```
 ___

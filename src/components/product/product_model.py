@@ -13,7 +13,7 @@ class Product(BaseModel):
     present_for_vet = db.Column(db.Boolean, default=False, nullable=False)
     valid_for_loyalty = db.Column(db.Boolean, default=False, nullable=False)
     order_products = db.relationship(OrderProduct)
-    loyalty_product_rules = db.relationship(LoyaltyProductRule)
+    # loyalty_product_rules = db.relationship(LoyaltyProductRule)
 
     def __repr__(self):
         return f"<Product (product_integration_id={self.product_integration_id})>"
